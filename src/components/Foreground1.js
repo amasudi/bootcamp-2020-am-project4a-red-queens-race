@@ -1,6 +1,5 @@
 import React from "react";
 import useWebAnimations from "@wellyshen/use-web-animations";
-
 export const Foreground1 = () => {
   const { ref, getAnimation } = useWebAnimations({
     keyframes: [
@@ -16,7 +15,7 @@ export const Foreground1 = () => {
     getAnimation().currentTime = getAnimation().effect.getTiming().duration / 2;
   }
   return (
-    <div className="scenery" ref={ref}>
+    <div className="scenery" id="foreground1" ref={ref}>
       <img
         id="palm3"
         src="/assets/images/palm3_small.png"

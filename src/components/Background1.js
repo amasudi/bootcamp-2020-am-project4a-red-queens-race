@@ -1,6 +1,5 @@
 import React from "react";
 import useWebAnimations from "@wellyshen/use-web-animations";
-
 export const Background1 = () => {
   const { ref, getAnimation } = useWebAnimations({
     keyframes: [
@@ -16,7 +15,7 @@ export const Background1 = () => {
     getAnimation().currentTime = getAnimation().effect.getTiming().duration / 2;
   }
   return (
-    <div className="scenery" ref={ref}>
+    <div className="scenery" id="background1" ref={ref}>
       <img
         id="r_pawn_upright"
         src="/assets/images/r_pawn_upright_small.png"

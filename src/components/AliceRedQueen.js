@@ -1,6 +1,5 @@
 import React from "react";
 import useWebAnimations from "@wellyshen/use-web-animations";
-
 export const AliceRedQueen = () => {
   const { ref, getAnimation } = useWebAnimations({
     keyframes: [
@@ -62,6 +61,7 @@ export const AliceRedQueen = () => {
   }
   return (
     <img
+      id="red-queen_and_alice_sprite"
       ref={ref}
       src="/assets/images/sprite_running-alice-queen_small.png"
       srcSet="

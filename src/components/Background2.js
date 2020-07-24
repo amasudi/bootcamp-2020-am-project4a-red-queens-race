@@ -1,6 +1,5 @@
 import React from "react";
 import useWebAnimations from "@wellyshen/use-web-animations";
-
 export const Background2 = () => {
   const { ref } = useWebAnimations({
     keyframes: [
@@ -13,7 +12,7 @@ export const Background2 = () => {
     },
   });
   return (
-    <div className="scenery" ref={ref}>
+    <div className="scenery" id="background2" ref={ref}>
       <img
         id="r_pawn"
         src="/assets/images/r_pawn_small.png"
