@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import useWebAnimations from "@wellyshen/use-web-animations";
+import { GlobalContext } from "../context/GlobalContext";
 export const AliceRedQueen = () => {
+  let { data } = useContext(GlobalContext);
   const { ref, getAnimation } = useWebAnimations({
     keyframes: [
       { transform: "translateY(0)" },
@@ -17,12 +19,31 @@ export const AliceRedQueen = () => {
   if (getAnimation() !== undefined) {
     const animation = getAnimation();
 
-    var sceneries = [
-      //    animationForeground1,
-      //    animationForeground2,
-      //    animationBackground1,
-      //    animationBackground2,
-    ];
+    var sceneries = [];
+    if (
+      data.animationForeground1 !== null &&
+      data.animationForeground1 !== undefined
+    ) {
+      sceneries[0] = data.animationForeground1;
+    }
+    if (
+      data.animationForeground2 !== null &&
+      data.animationForeground2 !== undefined
+    ) {
+      sceneries[1] = data.animationForeground2;
+    }
+    if (
+      data.animationBackground1 !== null &&
+      data.animationBackground1 !== undefined
+    ) {
+      sceneries[2] = data.animationBackground1;
+    }
+    if (
+      data.animationBackground2 !== null &&
+      data.animationBackground2 !== undefined
+    ) {
+      sceneries[3] = data.animationBackground2;
+    }
     var adjustBackgroundPlayback = function () {
       if (animation.playbackRate < 0.8) {
         sceneries.forEach(function (anim) {
@@ -31,6 +52,7 @@ export const AliceRedQueen = () => {
       } else if (animation.playbackRate > 1.2) {
         sceneries.forEach(function (anim) {
           anim.playbackRate = animation.playbackRate / 2;
+          console.log("coming");
         });
       } else {
         sceneries.forEach(function (anim) {

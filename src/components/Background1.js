@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import useWebAnimations from "@wellyshen/use-web-animations";
+import { GlobalContext } from "../context/GlobalContext";
 export const Background1 = () => {
+  let { data, handleAllAnimations } = useContext(GlobalContext);
   const { ref, getAnimation } = useWebAnimations({
     keyframes: [
       { transform: "translateX(100%)" },
@@ -12,6 +14,12 @@ export const Background1 = () => {
     },
   });
   if (getAnimation() !== undefined) {
+    if (
+      data.animationBackground1 === undefined ||
+      data.animationBackground1 === null
+    ) {
+      handleAllAnimations("animationBackground1", getAnimation());
+    }
     getAnimation().currentTime = getAnimation().effect.getTiming().duration / 2;
   }
   return (
